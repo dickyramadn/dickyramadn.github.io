@@ -35,11 +35,20 @@
         ::-webkit-scrollbar-track { background: #f1f5f9; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
         .cursor { display: inline-block; width: 3px; background-color: #2563eb; animation: blink 1s infinite; }
         @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+        
         .bg-grid { background-size: 40px 40px; mask-image: linear-gradient(to bottom, transparent, 5%, white, 95%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, 5%, white, 95%, transparent); }
-        .skill-tag { @apply px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-medium rounded-lg shadow-sm; } 
-        .project-tag { @apply text-xs font-bold text-slate-500 bg-slate-100 px-2 py-1 rounded; }
+        
+        /* STYLE KHUSUS UNTUK SKILL TAGS (PROJECT & SKILLS SECTION) */
+        /* Ini membuat tampilan kotak/grid dengan garis tepi abu-abu yang jelas */
+        .skill-tag, .project-tag { 
+            @apply inline-block px-3 py-1.5 bg-white border border-slate-300 text-slate-700 text-xs font-bold rounded-lg shadow-sm hover:border-blue-400 hover:text-blue-600 transition-colors; 
+        }
+        
+        /* Sedikit perbedaan ukuran font untuk bagian Skills agar lebih besar */
+        .skill-tag { @apply text-sm; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -63,7 +72,6 @@
             </div>
 
             <a href="#contact" class="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 bg-primary rounded-full hover:bg-accent hover:shadow-lg hover:-translate-y-0.5">Contact Me</a>
-            
             <button id="mobile-menu-btn" class="md:hidden text-primary focus:outline-none p-2"><i class="fas fa-bars text-xl"></i></button>
         </div>
         
@@ -88,20 +96,16 @@
                     <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span></span>
                     Available for Hire
                 </div>
-                
                 <h1 data-aos="fade-up" data-aos-delay="100" class="text-5xl lg:text-7xl font-extrabold text-primary mb-6 leading-[1.1] tracking-tight">
                     Hello, I'm <br> <span class="text-accent bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-cyan-500">Dicky Ramadhan</span>
                 </h1>
-                
                 <h2 class="text-xl font-medium text-slate-500 mb-8 h-8 flex items-center gap-2">
                     <span class="w-8 h-[1px] bg-slate-400"></span>
                     <span id="typing-text" class="text-slate-700 font-semibold"></span><span class="cursor">&nbsp;</span>
                 </h2>
-                
                 <p data-aos="fade-up" data-aos-delay="300" class="text-slate-600 max-w-lg mb-10 leading-relaxed text-lg font-light">
                     Transforming complex data into <strong>strategic business decisions</strong> through robust statistical approaches and machine learning implementation.
                 </p>
-                
                 <div data-aos="fade-up" data-aos-delay="400" class="flex flex-wrap gap-4">
                     <a href="#projects" class="px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-slate-800 transition-all shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20 hover:-translate-y-1 flex items-center gap-2">
                         View Projects <i class="fas fa-arrow-right text-sm ml-1"></i>
@@ -111,26 +115,18 @@
                     </a>
                 </div>
             </div>
-
             <div class="order-1 md:order-2 flex justify-center md:justify-end" data-aos="fade-left" data-aos-delay="200">
                 <div class="relative w-72 h-72 md:w-96 md:h-96">
                     <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-[2rem] rotate-6 opacity-20 blur-xl"></div>
                     <div class="relative w-full h-full bg-slate-100 rounded-[2rem] shadow-2xl border border-slate-100 overflow-hidden flex items-center justify-center">
                         <img src="profile.jpg" alt="Dicky Ramadhan" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=Dicky+Ramadhan&background=0f172a&color=fff&size=512&font-size=0.33';">
                     </div>
-                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
-                        <div class="bg-green-100 p-2 rounded-lg text-green-600"><i class="fas fa-code"></i></div>
-                        <div>
-                            <div class="text-xs text-slate-500 font-bold uppercase">Focus</div>
-                            <div class="text-sm font-bold text-slate-800">Python & SQL</div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-<section id="skills" class="py-32 bg-white relative">
+    <section id="skills" class="py-32 bg-white relative">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
                 <div data-aos="fade-right">
@@ -141,60 +137,44 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
                 <div data-aos="fade-up" data-aos-delay="100" class="group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-blue-100 w-24 h-24 rounded-bl-[100px] -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform"></div>
-                    
-                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-2xl mb-8 shadow-sm text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    
+                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-2xl mb-8 shadow-sm text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300"><i class="fas fa-brain"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-6">Statistical & Machine Learning</h3>
-                    
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Python</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Scikit-Learn</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Forecasting</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Clustering</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Logistic Regression</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Random Forest</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">LightGBM</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Scikit-Learn</span>
+                        <span class="skill-tag">Forecasting</span>
+                        <span class="skill-tag">Clustering</span>
+                        <span class="skill-tag">Logistic Regression</span>
+                        <span class="skill-tag">Random Forest</span>
+                        <span class="skill-tag">LightGBM</span>
                     </div>
                 </div>
 
                 <div data-aos="fade-up" data-aos-delay="200" class="group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-cyan-100 w-24 h-24 rounded-bl-[100px] -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform"></div>
-                    
-                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-2xl mb-8 shadow-sm text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
-                    
+                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-2xl mb-8 shadow-sm text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300"><i class="fas fa-chart-pie"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-6">Data Visualization</h3>
-                    
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Tableau</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Power BI</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Looker Studio</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Matplotlib</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Seaborn</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Looker Studio</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
                     </div>
                 </div>
 
                 <div data-aos="fade-up" data-aos-delay="300" class="group bg-slate-50 rounded-2xl p-8 border border-slate-200 hover:border-indigo-300 hover:shadow-lg transition-all duration-300 relative overflow-hidden">
                     <div class="absolute top-0 right-0 bg-indigo-100 w-24 h-24 rounded-bl-[100px] -mr-4 -mt-4 opacity-50 group-hover:scale-110 transition-transform"></div>
-                    
-                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-2xl mb-8 shadow-sm text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    
+                    <div class="w-14 h-14 bg-white border border-slate-200 rounded-xl flex items-center justify-center text-2xl mb-8 shadow-sm text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300"><i class="fas fa-database"></i></div>
                     <h3 class="text-xl font-bold text-slate-900 mb-6">Data Management</h3>
-                    
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">SQL (ETL)</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">BigQuery</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Excel (Pivot, VBA)</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Data Cleaning</span>
-                        <span class="px-3 py-1.5 bg-white border border-slate-200 text-slate-700 text-sm font-bold rounded-lg shadow-sm">Data Validation</span>
+                        <span class="skill-tag">SQL (ETL)</span>
+                        <span class="skill-tag">BigQuery</span>
+                        <span class="skill-tag">Excel (Pivot, VBA)</span>
+                        <span class="skill-tag">Data Cleaning</span>
+                        <span class="skill-tag">Data Validation</span>
                     </div>
                 </div>
             </div>
@@ -208,7 +188,6 @@
                 <span class="text-accent font-bold tracking-widest text-sm uppercase bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Career Path</span>
                 <h2 data-aos="fade-up" class="text-4xl font-bold text-primary mt-4">Professional Experience</h2>
             </div>
-
             <div class="space-y-8">
                 <div data-aos="fade-up" class="group relative bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-accent/30">
                     <div class="flex flex-col md:flex-row gap-6 md:items-start">
@@ -226,7 +205,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div data-aos="fade-up" data-aos-delay="100" class="group relative bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-lg transition-all duration-300 hover:border-slate-300">
                     <div class="flex flex-col md:flex-row gap-6 md:items-start">
                         <div class="w-16 h-16 bg-slate-50 rounded-xl flex items-center justify-center text-2xl text-slate-600 shrink-0 font-bold border border-slate-100">BP</div>
@@ -266,7 +244,6 @@
                         <i class="fas fa-star text-yellow-400"></i><span class="font-bold">GPA 3.33 / 4.00</span>
                     </div>
                 </div>
-                
                 <div class="space-y-6 flex flex-col justify-center">
                     <div data-aos="fade-left" data-aos-delay="100" class="bg-slate-50 p-6 rounded-2xl border border-slate-200 hover:border-cyan-300 hover:bg-white hover:shadow-lg transition-all duration-300">
                         <div class="flex items-start gap-4">
@@ -293,7 +270,7 @@
         </div>
     </section>
 
-<section id="projects" class="py-32 bg-slate-50 relative overflow-hidden">
+    <section id="projects" class="py-32 bg-slate-50 relative overflow-hidden">
         <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-20">
@@ -302,7 +279,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
                 <div data-aos="fade-up" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-slate-100 flex flex-col h-full">
                     <div class="h-56 relative overflow-hidden shrink-0">
                         <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-transparent transition-colors z-10"></div>
@@ -314,7 +290,6 @@
                     </div>
                     <div class="p-8 flex flex-col flex-1">
                         <p class="text-slate-600 mb-6 leading-relaxed text-sm">Developed a credit default risk prediction model equipped with <strong>Explainable AI (SHAP)</strong> for business decision transparency.</p>
-                        
                         <div class="mt-auto pt-6 border-t border-slate-100">
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="project-tag">Python</span>
@@ -338,7 +313,6 @@
                     </div>
                     <div class="p-8 flex flex-col flex-1">
                         <p class="text-slate-600 mb-6 leading-relaxed text-sm">Cleaned raw data, executed queries in <strong>BigQuery</strong>, and visualized sales performance dashboards.</p>
-                        
                         <div class="mt-auto pt-6 border-t border-slate-100">
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="project-tag">SQL</span>
@@ -361,7 +335,6 @@
                     </div>
                     <div class="p-8 flex flex-col flex-1">
                         <p class="text-slate-600 mb-6 leading-relaxed text-sm">Investment asset allocation optimization model combining investor preferences (AHP) and risk management (Mean-Variance).</p>
-                        
                         <div class="mt-auto pt-6 border-t border-slate-100">
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="project-tag">Python</span>
@@ -371,7 +344,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
